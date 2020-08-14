@@ -8,7 +8,18 @@ The authors would like to thank ICERM and the organizers of the "Applied Mathema
 
 This material is based upon work supported by the National Science Foundation under Grant No. DMS-1439786 while the author was in residence at the Institute for Computational and Experimental Research in Mathematics in Providence, RI, during the Applied Mathematical Modeling with Topological Techniques program.
 
-The sonar dataset is from M. Robinson, "Multipath-dominant, pulsed doppler analysis of rotating blades," IET Radar Sonar and Navigation, Volume 7, Issue 3, March 2013, pp. 217-224.
+The sonar dataset 
+collection_3.txt
+collection_4.txt
+collection_5.txt
+is from M. Robinson, "Multipath-dominant, pulsed doppler analysis of rotating blades," IET Radar Sonar and Navigation, Volume 7, Issue 3, March 2013, pp. 217-224.
 
-The voting dataset is from M. Vejdemo-Johansson et. al. "The topology of politics: voting connectivity in the us house of representatives." In NIPS 2012 Workshop on Algebraic Topology and Machine Learning. 
+The voting dataset 
+us.congress.1990.votemetadata.csv
+us.congress.1990.votes.csv
+us.congress.1998.votemetadata.csv
+us.congress.1998.votes.csv
+us.congress.2006.votemetadata.csv
+us.congress.2006.votes.csv
+is from M. Vejdemo-Johansson et. al. "The topology of politics: voting connectivity in the us house of representatives." In NIPS 2012 Workshop on Algebraic Topology and Machine Learning. 
 
