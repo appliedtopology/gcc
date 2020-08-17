@@ -10,7 +10,7 @@ if len(sys.argv)!=8:
     print("""
     ### usage: python GCC.py [datafile] [threshold] [maxscale] [CEthreshold] [lp] [lq] [Nsteps]
     ### example: python GCC.py test.txt 0.5 2 1e-5 1 2 1000
-    ###[datafile] The dataset you want to analyze using circular coordinates in .txt format. The rows of the txt file are dimensions/variables; the columns of the txt file are samples.
+    ###[datafile] The dataset you want to analyze using circular coordinates in .txt format. The cols of the txt file are dimensions/variables; the rows of the txt file are samples.
     ###[threshold] The threhold on persistence which we use to select those significant cocyles from all cocycles constructed from the Vietoris-Rips complex built upon the data.
     ###[CEthreshold] The threshold that we use to determine the constant edges. When the coordinate functions' values changed below this threshold, we consider it as a constant edge and plot it.
     ###[maxscal] The maximal scale at which we shall construct the Vietoris-Rips complex for circular coordinate computation.
