@@ -4,12 +4,13 @@ This repository stores the code associated with the paper [arXiv 2006.02554](htt
 A relevant talk on this research is available at [AATRN seminars](https://www.youtube.com/watch?v=mBWegPu7Ca8).
 
 ***Dependencies*** 
+```bash
 Python                  3.6.9
 tensorboard             1.15.0
 tensorflow              1.15.0
 tensorflow-estimator    1.15.1
 tensorflow-gpu          2.0.0
-
+```
 ## Authors
 [Hengrui Luo](https://arxiv.org/search/stat?searchtype=author&query=Luo%2C+H), [Alice Patania](https://arxiv.org/search/stat?searchtype=author&query=Patania%2C+A), [Jisu Kim](https://arxiv.org/search/stat?searchtype=author&query=Kim%2C+J), [Mikael Vejdemo-Johansson](https://arxiv.org/search/stat?searchtype=author&query=Vejdemo-Johansson%2C+M)
 ## Acknowledgement
