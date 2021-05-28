@@ -6,10 +6,10 @@ A relevant talk on this research is available at [AATRN seminars](https://www.yo
 ***Dependencies*** 
 ```bash
 Python                  3.6.9
-tensorboard             1.15.0
-tensorflow              1.15.0
-tensorflow-estimator    1.15.1
-tensorflow-gpu          2.0.0
+tensorboard             1.15.0(GCC) or 2.5.0 (GCC2)
+tensorflow              1.15.0(GCC) or 2.5.0 (GCC2)
+tensorflow-estimator    1.15.1(GCC) or 2.5.0 (GCC2)
+tensorflow-gpu          2.0.0(optional)
 ```
 ## Authors
 [Hengrui Luo](https://arxiv.org/search/stat?searchtype=author&query=Luo%2C+H), [Alice Patania](https://arxiv.org/search/stat?searchtype=author&query=Patania%2C+A), [Jisu Kim](https://arxiv.org/search/stat?searchtype=author&query=Kim%2C+J), [Mikael Vejdemo-Johansson](https://arxiv.org/search/stat?searchtype=author&query=Vejdemo-Johansson%2C+M)
