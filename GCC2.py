@@ -55,7 +55,8 @@ def coboundary_1(vr, thr):
         if s.dimension() != 1:
             continue
         elif s.data > thr:
-            break
+            #break
+            continue
         indexing.setdefault(s.dimension(),{})
         indexing.setdefault(s.dimension()-1,{})
         if not s in indexing[s.dimension()]:
@@ -73,6 +74,7 @@ def coboundary_1(vr, thr):
 
 def optimizer_inputs(vr, bars, cocycle, init_z, prime, thr):
     bdry,indexing = coboundary_1(vr,thr)
+    #print('?DEBUG',indexing)
     n, m = bdry.shape # edges X nodes
     #-----------------
     l2_cocycle = [0]*len(init_z) #reorganize the coordinates so they fit with the coboundary indices
@@ -81,6 +83,7 @@ def optimizer_inputs(vr, bars, cocycle, init_z, prime, thr):
     l2_cocycle = np.array(l2_cocycle)
     #-----------------
     f = np.zeros((n,1)) # cocycle we need to smooth out, reorganize to fit coboundary
+    #print('?DEBUG:',[vr[c2.index].data for c2 in cocycle])
     for c2 in cocycle:
         if c2.element<(prime//2):
             f[indexing[1][vr[c2.index]]] += c2.element
@@ -255,9 +258,11 @@ with PdfPages(pdfnam) as pdf:
         for g in range(len(cocycles)):
             chosen_cocycle = cocycles[g]
             chosen_bar = bars[g]
-            vr_L2 = dionysus.Filtration([s for s in vr if s.data <= chosen_bar.birth])
+            #print(chosen_cocycle,chosen_bar)
+            NEW_THRESHOLD = max([vr[c2.index].data for c2 in chosen_cocycle]) 
+            vr_L2 = dionysus.Filtration([s for s in vr if s.data <=NEW_THRESHOLD])
             coords = dionysus.smooth(vr_L2, chosen_cocycle, prime)
-            l2_cocycle,f,bdry = optimizer_inputs(vr, bars, chosen_cocycle, coords, prime, chosen_bar.birth)
+            l2_cocycle,f,bdry = optimizer_inputs(vr, bars, chosen_cocycle, coords, prime, NEW_THRESHOLD)
             l2_cocycle = l2_cocycle.reshape(-1, 1)
             ##It does not seem to work to have double invokes here...
             B_mat = bdry.todense()         
