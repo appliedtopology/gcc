@@ -270,7 +270,7 @@ with PdfPages(pdfnam) as pdf:
             z = tf.Variable(z_init, name='z', trainable=True, dtype=tf.float64)
             trainable_variables = [z]
             def loss_function():
-                cost_z = (1-lambda_parameter)*tf.math.pow( tf.math.reduce_sum( tf.math.pow( tf.abs(f - tf.linalg.matmul(B_mat,z) ),lp ) ), 1/lp) + lambda_parameter*tf.math.pow( tf.math.reduce_sum( tf.math.pow( tf.math.abs(f - tf.linalg.matmul(B_mat,z) ),lq ) ), 1/lq)
+                cost_z = (1-lambda_parameter)*tf.math.pow( tf.math.reduce_sum( tf.math.pow( tf.math.abs(f - tf.linalg.matmul(B_mat,z) ),lp ) ), 1/lp) + lambda_parameter*tf.math.pow( tf.math.reduce_sum( tf.math.pow( tf.math.abs(f - tf.linalg.matmul(B_mat,z) ),lq ) ), 1/lq)
                 return cost_z
             #print(B_mat.shape)
             #l2_cocycle=np.zeros((B_mat.shape[1],1))
