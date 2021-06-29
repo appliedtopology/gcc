@@ -25,7 +25,7 @@ if len(sys.argv)!=8 and len(sys.argv)!=9:
     ### example 1: python GCC2.py test.txt 0.5 2 1e-5 1 2 1000 0.5
     ### example 2: python GCC2.py test.txt -1 2 1e-5 1 2 1000
     ###[datafile] The dataset you want to analyze using circular coordinates in .txt format. The cols of the txt file are dimensions/variables; the rows of the txt file are samples.
-    ###[threshold] The threhold on persistence which we use to select those significant cocyles from all cocycles constructed from the Vietoris-Rips complex built upon the data. If negative integer M, the 1-cocycles with the 1,2,...,M-th largest persistence will be picked. This option would override the threshold option. 
+    ###[threshold] The threhold on persistence which we use to select those significant cocycles from all cocycles constructed from the Vietoris-Rips complex built upon the data. If negative integer M, the 1-cocycles with the 1,2,...,M-th largest persistence will be picked. This option would override the threshold option. 
     ###[CEthreshold] The threshold that we use to determine the constant edges. When the coordinate functions' values changed below this threshold, we consider it as a constant edge and plot it.
     ###[maxscal] The maximal scale at which we shall construct the Vietoris-Rips complex for circular coordinate computation.
     ###[lp] [lq] The generalized penalty function is in form of (1-lambda_parameter)*L^[lp]+lambda_parameter*L^[lq].
@@ -133,7 +133,7 @@ with PdfPages(pdfnam) as pdf:
     threshold = float(sys.argv[2])
     print('Base coefficient field: Z/', prime ,'Z',sep='')
     print('Maximal scale:', float(sys.argv[3]))
-    print('Persistence threshold for selecting significant cocyles:',threshold)
+    print('Persistence threshold for selecting significant cocycles:',threshold)
 
     vr = dionysus.fill_rips(dataset, 2, float(sys.argv[3]))
     #Vietoris-Rips complex
@@ -181,7 +181,7 @@ with PdfPages(pdfnam) as pdf:
         leadings = int(np.abs(threshold))
         #Override threshold option
         threshold = 0 
-        print('\n>>>>>>Threshold overridden, the 1-cocyles with the ',leadings,' largest persistence would be selected for computation.')
+        print('\n>>>>>>Threshold overridden, the 1-cocycles with the ',leadings,' largest persistence would be selected for computation.')
         cocycles = cocycles[0:leadings]
         bars = bars[0:leadings]
     else:
@@ -192,7 +192,7 @@ with PdfPages(pdfnam) as pdf:
         print(B_Lt,'\tpersistence = ',B_Lt.death-B_Lt.birth)
     ####################
     #PersistenceBarcode#
-    #Red highlight ***ALL*** cocyles that persist more than threshold value on barcode, when more than one cocyles have persisted over threshold values, this plots the first one.
+    #Red highlight ***ALL*** cocycles that persist more than threshold value on barcode, when more than one cocycles have persisted over threshold values, this plots the first one.
     fig = plt.figure(figsize=(5,5), dpi=100)
     dionysus.plot.plot_bars(dgms[1], show=False)
     Lt1 = [[bar.birth,bar.death] for bar in bars]
@@ -215,7 +215,7 @@ with PdfPages(pdfnam) as pdf:
     ####################
     ####################
     #PersistenceDiagram#
-    #Red highlight ***ALL*** cocyles that persist more than threshold value on diagram.
+    #Red highlight ***ALL*** cocycles that persist more than threshold value on diagram.
     fig = plt.figure(figsize=(5,5), dpi=100)
     dionysus.plot.plot_diagram(dgms[1], show=False)
     Lt2 = [[point.birth,point.death] for point in bars ]
@@ -301,7 +301,7 @@ with PdfPages(pdfnam) as pdf:
             plt.clim(0,1)
             plt.colorbar()
             plt.axis('equal')
-            plt.title('Circular coordinates {}-th cocyle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
+            plt.title('Circular coordinates {}-th cocycle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
             edges_constant = []
             thr = chosen_bar.birth
             #####Constatn edges
@@ -325,7 +325,7 @@ with PdfPages(pdfnam) as pdf:
             plt.clim(0,1)
             plt.colorbar()
             plt.axis('equal')
-            plt.title('Circular coordinates/constant edges, \n {}-th cocyle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
+            plt.title('Circular coordinates/constant edges, \n {}-th cocycle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
             pdf.savefig(fig)
             plt.close('all')
             color_filenam = filenam+'_CircularCoordinates_'+str(lambda_parameter)+'_'+str(g)+'.txt'
@@ -337,7 +337,7 @@ with PdfPages(pdfnam) as pdf:
             plt.scatter(angle,color,s=10, c='b',zorder=10)
             plt.ylim([0,1])
             plt.xlim([-np.pi/2,np.pi/2])
-            plt.title('Correlation plot against angle, \n {}-th cocyle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
+            plt.title('Correlation plot against angle, \n {}-th cocycle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
             pdf.savefig(fig)
             plt.close('all')
             embedding.extend([[np.sin(a) for a in 2*np.pi*color], [np.cos(a) for a in 2*np.pi*color]])
@@ -347,7 +347,7 @@ with PdfPages(pdfnam) as pdf:
             plt.scatter(dist2,color,s=10, c='b',zorder=10)
             plt.ylim([0,1])
             plt.xlim([0,maxscale])
-            plt.title('Correlation plot aginst distance, \n {}-th cocyle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
+            plt.title('Correlation plot aginst distance, \n {}-th cocycle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
             pdf.savefig(fig)
             plt.close('all')
             
@@ -393,7 +393,7 @@ with PdfPages(pdfnam) as pdf:
         plt.scatter(dist2,color,s=10, c='b',zorder=10)
         plt.ylim([0,1])
         plt.xlim([0,maxscale])
-        plt.title('Correlation plot aginst distance, \n {}-th cocyle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
+        plt.title('Correlation plot against distance, \n {}-th cocycle (mod {} - {}*L{} + {}*L{})'.format(g+1,prime,1-lambda_parameter,lp,lambda_parameter,lq))
         pdf.savefig(fig)
         plt.close('all')
 
